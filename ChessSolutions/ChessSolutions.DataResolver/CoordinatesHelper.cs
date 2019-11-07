@@ -1,4 +1,5 @@
-﻿using ChessSolutions.DataResolver.Models;
+﻿using ChessSolutions.DataResolver.Enums;
+using ChessSolutions.DataResolver.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -38,11 +39,11 @@ namespace ChessSolutions.DataResolver
         public static BoardSquareModel ChessToNumericalCoordinates(string input)
         {
             input = input.Replace(" ", "").ToLower();
-            var color = (SquareColor)int.Parse(input[0].ToString());
+            var color = (FigureColor)int.Parse(input[0].ToString());
 
             var firstPointValue = input[1].ToString();
             var secondNumber = int.Parse(input[2].ToString());
-            return new BoardSquareModel() { X = LettersCoordinates[firstPointValue], Y = secondNumber, Color = color };
+            return new BoardSquareModel() { X = LettersCoordinates[firstPointValue], Y = secondNumber };
         }
 
 
